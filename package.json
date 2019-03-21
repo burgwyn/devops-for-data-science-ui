@@ -8,6 +8,7 @@
     "react-dom": "^16.8.4",
     "react-dropzone": "^10.0.5",
     "react-scripts": "2.1.8",
+    "react-toastify": "^4.5.2",
     "uswds": "^1.6.9"
   },
   "scripts": {

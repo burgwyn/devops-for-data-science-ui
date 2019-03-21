@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import './App.css';
 import Dropzone from './Dropzone';
 
@@ -20,6 +21,7 @@ class App extends Component {
       }
     }).then((res) => {
       console.log(res.data.message);
+      toast(res.data.message);
     });
   }
   render() {
@@ -29,6 +31,7 @@ class App extends Component {
           <span>🧰</span>
         </header>
         <main>
+          <ToastContainer />
           <section className="App-main">
             <Dropzone onSubmit={this.onSubmit} />
           </section>
