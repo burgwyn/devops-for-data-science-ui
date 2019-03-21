@@ -1,14 +1,17 @@
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 
+import './Dropzone.css';
+
 function Dropzone() {
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
+    console.log(acceptedFiles[0]);
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <form {...getRootProps()}>
+    <form className="Dropzone" enctype="multipart/form-data" {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ?
