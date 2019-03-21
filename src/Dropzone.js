@@ -3,15 +3,15 @@ import {useDropzone} from 'react-dropzone'
 
 import './Dropzone.css';
 
-function Dropzone() {
+function Dropzone({onSubmit}) {
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
-    console.log(acceptedFiles[0]);
+    onSubmit(acceptedFiles);
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <form className="Dropzone" enctype="multipart/form-data" {...getRootProps()}>
+    <form className="Dropzone" encType="multipart/form-data" {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ?
