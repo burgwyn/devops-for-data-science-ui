@@ -1,4 +1,11 @@
 .Dropzone {
     border: solid black 1px;
-    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.Dropzone > p {
+    margin: 0;
 }

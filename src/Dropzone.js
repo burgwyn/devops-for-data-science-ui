@@ -10,8 +10,10 @@ function Dropzone({onSubmit}) {
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
+  const style = (isDragActive) ? { backgroundColor: '#e7f4e4', border: 'dashed black 2px'} : {};
+
   return (
-    <form className="Dropzone" encType="multipart/form-data" {...getRootProps()}>
+    <form className="Dropzone" encType="multipart/form-data" {...getRootProps({style})}>
       <input {...getInputProps()} />
       {
         isDragActive ?
