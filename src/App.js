@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import Dropzone from './Dropzone';
 
@@ -10,6 +11,16 @@ class App extends Component {
   }
   onSubmit(files) {
     console.log(files);
+
+    let formData = new FormData();
+    formData.append('file', files[0]);
+    axios.post('http://localhost:5000/upload', formData, { 
+      headers: {
+      'Content-Type': 'multipart/form-data'
+      }
+    }).then((res) => {
+      console.log(res.data.message);
+    });
   }
   render() {
     return (
